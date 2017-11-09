@@ -19,7 +19,7 @@ class SearchMovie
 	
 
 	def perform
-		log_in_to_tmdb
+		search_movie
 		
 	end
 end
