@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   def index
-  	SearchMovie.new(movie).perform
+  	movie = params[:movie]
+  	@movies = SearchMovie.new(movie).perform unless movie == nil
   end
 end
+
