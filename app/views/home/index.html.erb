@@ -10,11 +10,13 @@
 
 <% else %>
 
+	
+	
 	<%@movies.each do |movie|%>
-		<h2>Titre:</h2><%=movie.values[4]%>
-		<h2>Affiche:</h2><img src="https://image.tmdb.org/t/p/w640/<%= movie.values[6] %>">
-		<h2>Résumé:</h2><%=movie.values[12]%>
-		<h2>Date de sortie:</h2><%=movie.values[13]%>
+		<h2>Titre:</h2><%=movie.values[movie.keys.index {|a| a=='title'}]%>
+		<h2>Affiche:</h2><img src="https://image.tmdb.org/t/p/w640/<%= movie.values[movie.keys.index {|a| a=='poster_path'}] %>">
+		<h2>Résumé:</h2><%=movie.values[movie.keys.index {|a| a=='overview'}]%>
+		<h2>Date de sortie:</h2><%=movie.values[movie.keys.index {|a| a=='release_date'}]%>
 	<%end%>
 
 <%end%>
